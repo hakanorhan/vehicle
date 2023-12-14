@@ -12,14 +12,14 @@ import AccountComponent from './navbarComponents/AccountComponent';
 
 export default function Navbar() {
     return (
-      <AppBar position="static">
+      <AppBar>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             
             {/* Company name Desktop size */}
             <LogoCompanyName variant="h6" xs='none' md='flex'/>
 
-            {/* Navbar links  Hamburger Menu Moile and Table size*/}
+            {/* Navbar links  Hamburger Menu Mobile and Table size*/}
             <ResponsiveNavbarLinks />
 
             {/* Company name Smartphone and Tablet size */}

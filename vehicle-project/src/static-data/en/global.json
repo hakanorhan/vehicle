@@ -1,0 +1,6 @@
+{
+    "header": {
+        "account" : ["Account", "Settings", "Logout"],
+        "navbarLinks" : ["Search", "Sell", "FAQ", "Contact", "About Us"]
+    }
+}

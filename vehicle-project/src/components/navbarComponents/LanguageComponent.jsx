@@ -1,39 +1,44 @@
-import React from 'react'
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
+import React, { useState } from "react";
+import Box from "@mui/material/Box";
+import IconButton from "@mui/material/IconButton";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
+import i18next from "i18next";
 
 // Langauge icon
-import LanguageIcon from '@mui/icons-material/Language';
+import LanguageIcon from "@mui/icons-material/Language";
+
+// Supported Languages
+import { supportedLanguages } from "../../I18Initializer";
 
 export default function LanguageComponent() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const open = Boolean(anchorEl);
+  
+  /* Open menu */
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
 
-    // Set to cookies
-    const handleLanguageButton = () => {
+  /* Close menu */
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
-    }
-
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
-    const handleClose = (language) => {
-      setAnchorEl(null);
-
-      // Set cookie
-      document.cookie = language
-    };
-
+  /* Change to selected language */
+  const changeLanguage = (language) => {
+    i18next.changeLanguage(language, (err) => {
+      if (err) return console.log("No supported language", err);
+    });
+  };
+  
   return (
-    <Box sx={{mr:3, padding:0}}>
-           
-           <IconButton
+    <Box sx={{ mr: 3, padding: 0 }}>
+      <IconButton
         id="basic-button"
-        aria-controls={open ? 'basic-menu' : undefined}
+        aria-controls={open ? "basic-menu" : undefined}
         aria-haspopup="true"
-        aria-expanded={open ? 'true' : undefined}
+        aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
         <LanguageIcon />
@@ -44,12 +49,24 @@ export default function LanguageComponent() {
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          'aria-labelledby': 'basic-button',
+          "aria-labelledby": "basic-button",
         }}
       >
-        <MenuItem onClick={() => {handleClose('de')}}>Deutsch</MenuItem>
-        <MenuItem onClick={() => {handleClose('en')}}>English</MenuItem>
+        { /* Language Menu Item */ }
+        {supportedLanguages.map((language) => {
+          return (
+            <MenuItem
+              key={language.shortName}
+              onClick={() => {
+                handleClose();
+                changeLanguage(language.shortName);
+              }}
+            >
+              {language.fullName}
+            </MenuItem>
+          );
+        })}
       </Menu>
-            </Box>
-  )
+    </Box>
+  );
 }
