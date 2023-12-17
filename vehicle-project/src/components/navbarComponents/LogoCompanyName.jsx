@@ -27,10 +27,13 @@ export default function LogoCompanyName(props) {
                 display: { xs: props.xs, md: props.md },
                 fontFamily: 'monospace',
                 fontWeight: 100,
-                fontSize:'1.5rem',
+                fontSize:{xs: '0.9rem', sm: '1.2rem', md: '1.5rem'},
                 color: 'silver',
                 textDecoration: 'none',
-                "&:hover":{transform:'scale(1.15)', transition:'1s'}
+                "&:hover":{
+                  transform:'scale(1.15)',
+                  transition:'1s'
+                }
               }}
             >
               vehicles

@@ -31,8 +31,9 @@ export default function LanguageComponent() {
       if (err) return console.log("No supported language", err);
     });
   };
-  
+
   return (
+
     <Box sx={{ mr: 3, padding: 0 }}>
       <IconButton
         id="basic-button"
@@ -41,7 +42,7 @@ export default function LanguageComponent() {
         aria-expanded={open ? "true" : undefined}
         onClick={handleClick}
       >
-        <LanguageIcon />
+        <LanguageIcon sx={{color:"white"}}/>
       </IconButton>
       <Menu
         id="basic-menu"

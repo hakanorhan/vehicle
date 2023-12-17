@@ -10,9 +10,15 @@ import NavbarLinks from './navbarComponents/NavbarLinks';
 import LanguageComponent from './navbarComponents/LanguageComponent';
 import AccountComponent from './navbarComponents/AccountComponent';
 
+import { grey } from '@mui/material/colors';
+import ResponsiveDrawer from './navbarComponents/ResponsiveDrawer';
+
 export default function Navbar() {
+    
+    const greyCode = grey[900];
+
     return (
-      <AppBar>
+      <AppBar position='relative' sx={{bgcolor:greyCode}}>
         <Container maxWidth="xl">
           <Toolbar disableGutters>
             
@@ -20,7 +26,8 @@ export default function Navbar() {
             <LogoCompanyName variant="h6" xs='none' md='flex'/>
 
             {/* Navbar links  Hamburger Menu Mobile and Table size*/}
-            <ResponsiveNavbarLinks />
+            {/* <ResponsiveNavbarLinks /> */}
+            <ResponsiveDrawer />
 
             {/* Company name Smartphone and Tablet size */}
             <LogoCompanyName variant="h5" xs='flex' md='none' />
