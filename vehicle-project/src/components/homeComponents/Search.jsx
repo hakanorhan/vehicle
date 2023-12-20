@@ -3,10 +3,13 @@ import React from "react";
 import {
   Container,
   Box,
+  Card,
+  Button,
   Typography,
   IconButton,
   ThemeProvider,
 } from "@mui/material";
+
 import Grid2 from "@mui/material/Unstable_Grid2/Grid2";
 import SelectInput from "../inputfields/SelectInput";
 
@@ -16,7 +19,6 @@ import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import TwoWheelerIcon from "@mui/icons-material/TwoWheeler";
 import AirportShuttleIcon from "@mui/icons-material/AirportShuttle";
 
-import Button from '@mui/material/Button';
 import SearchIcon from '@mui/icons-material/Search';
 
 /** Themes for responsive design */
@@ -30,11 +32,17 @@ import {
 const COLUMN_WIDTH = 3;
 const TEXTFIELD_WITH = 6;
 
+import { GetI18 } from '../../functions/GetI18'
+
 /**
  * Breakpoints xs, md, xl
  * @returns
  */
 export default function Search() {
+
+  const [t, i18n] = GetI18();
+  const search = t("search", { returnObjects: true });
+
   return (
     <>
       {/* Background image */}
@@ -53,10 +61,11 @@ export default function Search() {
           </Typography>
         </ThemeProvider>
       </Box>
+
       {/* Fast search icons */}
       <ThemeProvider theme={themeFastSearch}>
         <Box>
-          <Grid2 container xs={12} sx={{ backgroundColor: "whitesmoke" }}>
+          <Grid2 container xs={12}>
             <Grid2 xs={COLUMN_WIDTH}>
               <Container
                 sx={{ backgroundColor: "gold", borderBottom: "solid" }}
@@ -97,23 +106,23 @@ export default function Search() {
       {/* Select for searching */}
       <ThemeProvider theme={themeSelect}>
         <Box>
-          <Grid2 container xs={12} justifyContent="center">
-            <SelectInput label="Marke" textfieldWidth={TEXTFIELD_WITH} />
-            <SelectInput label="Modell" textfieldWidth={TEXTFIELD_WITH} />
-            <SelectInput label="Erstzulassung" textfieldWidth={TEXTFIELD_WITH} />
-            <SelectInput label="Preis" textfieldWidth={TEXTFIELD_WITH} />
-            <SelectInput label="Preis" textfieldWidth={TEXTFIELD_WITH} />
-            <SelectInput label="Preis" textfieldWidth={TEXTFIELD_WITH} />
+          <Grid2 container xs={12}>
+            { search.labels.map((item) => (
+              // All labels of select with values.
+               <SelectInput key={item} label={item} textfieldWidth={TEXTFIELD_WITH} />
+            )) }
+
           </Grid2>
         </Box>
       </ThemeProvider>
-      <Box sx={{marginLeft:'1rem', marginRight:'1rem'}}>
+      
       <ThemeProvider theme={themeButton}>
+      <Card>
       <Button variant="contained" endIcon={<SearchIcon />}>
-        Suchen
+        { search.button }
       </Button>
+      </Card>
       </ThemeProvider>
-      </Box>
     </>
   );
 }

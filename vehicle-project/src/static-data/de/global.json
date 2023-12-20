@@ -2,5 +2,14 @@
     "header": {
         "account" : ["Account", "Einstellungen", "Abmelden"],
         "navbarLinks" : ["Suchen", "Verkaufen", "FAQ", "Kontakt", "Über uns"]
+    },
+    "search": {
+        "beispiel": {
+            "marke": "Marke",
+            "modell": "Modell"
+        },
+        "labels": ["Marke", "Modell", "Erstzulassung", "Stadt/PLZ", "Leistung", "Preis"],
+        "select": ["Alle Marken", "Alle Modelle", "Erstzulassung ab", "Stadt oder PLZ", "Leistung bis PS", "Preis bis €"],
+        "button": "Suchen"
     }
 }

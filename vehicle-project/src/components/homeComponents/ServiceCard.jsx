@@ -1,18 +1,22 @@
-import Grid2 from '@mui/material/Unstable_Grid2/Grid2'
 import React from 'react'
-
-import { Box, Button, Paper } from '@mui/material'
-
+import Grid2 from '@mui/material/Unstable_Grid2/Grid2'
 import PropTypes from 'prop-types';
-import { Typography } from '@mui/material'
+
+import { Box, Button, Paper, Typography, ThemeProvider } from '@mui/material'
+
+import { themeServiceCard } from '../../themes/ThemeHome';
+
+
 ServiceCard.propTypes = {
-    imgSource: PropTypes.string
+    imgSource: PropTypes.string,
+    paperWidthSm: PropTypes.number
     }
 
 export default function ServiceCard(props) {
   return (
     <Grid2 xs={12} sm={props.paperWidthSm}>
-        <Paper sx={{marginRight:'0.5rem', marginLeft:'0.5rem', marginTop:'1rem'}} elevation={4}>
+      <ThemeProvider theme={themeServiceCard}>
+        <Paper elevation={4}>
         <Box sx={{width:'100%', height:'110px'}}>
         <img src={`${props.imgSource}.png`} alt='Bild'/>
         </Box>
@@ -22,6 +26,7 @@ export default function ServiceCard(props) {
         Suchen
       </Button>
       </Paper>
+      </ThemeProvider>
     </Grid2>
   )
 }

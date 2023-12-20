@@ -4,7 +4,6 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 
-import ResponsiveNavbarLinks from './navbarComponents/ResponsiveNavbarLinks';
 import LogoCompanyName from './navbarComponents/LogoCompanyName';
 import NavbarLinks from './navbarComponents/NavbarLinks';
 import LanguageComponent from './navbarComponents/LanguageComponent';

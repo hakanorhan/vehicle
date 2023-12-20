@@ -3,7 +3,6 @@ import React from "react";
 
 import Search from "../components/homeComponents/Search";
 import Services from "../components/homeComponents/Services";
-import News from "../components/homeComponents/News";
 
 /**
  * Includes search, services and news components.
@@ -14,7 +13,6 @@ export default function Home() {
     <Box>
       <Search />
       <Services />
-      <News />
     </Box>
   );
 }

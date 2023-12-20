@@ -13,43 +13,48 @@ helperText: PropTypes.string,
 textfieldWidth: PropTypes.number
 }
 
-const currencies = [
+import { GetI18 } from '../../functions/GetI18';
+
+export default function SelectInput(props) {
+     
+  const [t, i18n] = GetI18();
+  const search = t("search", { returnObjects: true });
+
+  const carInformations = [
+    
     {
-      value: 'USD',
+      value: 'all',
       label: 'Alle Modelle',
     },
     {
-      value: 'EUR',
-      label: 'Alle Modelle',
+      value: 'audi',
+      label: 'Audi',
     },
     {
-      value: 'BTC',
-      label: '฿',
-    },
-    {
-      value: 'JPY',
-      label: '¥',
+      value: 'bmw',
+      label: 'BMW',
     },
   ];
 
-export default function SelectInput(props) {
-     return (
+  
+  return (
      <Grid2 xs={props.textfieldWidth}>
        <TextField
          id="outlined-select-currency"
          select
          label={props.label}
-         defaultValue="EUR"
+         defaultValue="all"
          noValidate
          autoComplete='off'
          component='form'
          sx={{width:'100%'}}
        >
-         {currencies.map((option) => (
+         {carInformations.map((option) => (
            <MenuItem key={option.value} value={option.value}>
              {option.label}
            </MenuItem>
          ))}
+         
        </TextField>
        </Grid2>
      )

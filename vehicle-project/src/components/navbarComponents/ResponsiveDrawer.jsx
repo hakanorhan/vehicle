@@ -7,6 +7,7 @@ import CloseIcon from "@mui/icons-material/Close";
 import { GetI18 } from "../../functions/GetI18";
 
 export default function ResponsiveDrawer() {
+  
   const [t, i18n] = GetI18();
   const header = t("header", { returnObjects: true });
 
@@ -25,19 +26,45 @@ export default function ResponsiveDrawer() {
         aria-label="logo"
         onClick={() => handleDrawer()}
       >
-        {isDrawerOpen ? <CloseIcon /> : <MenuIcon />}
+        <MenuIcon />
       </IconButton>
+
       <Drawer
-        PaperProps={{ sx: { width: {xs: '100%', sm: '85%'} } }}
+        PaperProps={{
+          sx: {
+            width: { xs: "100%", sm: "85%" },
+            backgroundColor: "whitesmoke",
+            opacity: "0.9",
+          },
+        }}
         anchor="left"
         open={isDrawerOpen}
         onClose={() => setIsDrawerOpen(false)}
       >
-        <Box marginTop={7} p={4} textAlign="center" role="presentation">
+        <IconButton
+          size="large"
+          edge="end"
+          aria-label="logo"
+          onClick={() => handleDrawer()}
+        >
+          {" "}
+          <CloseIcon
+            fontSize="large"
+            style={{
+              marginTop: "2rem",
+              marginLeft: "2rem",
+              stroke: "black",
+              strokeWidth: "3"
+            }}
+          />
+        </IconButton>
+
+        <Box marginTop={1} p={4} role="presentation">
           {header.navbarLinks.map((page) => (
             <a key={page}>
               <Typography
                 sx={{
+                  textAlign:'left',
                   fontFamily: "Roboto",
                   fontWeight: "700",
                   fontSize: { xs: "1.2rem", sm: "1.5rem" },

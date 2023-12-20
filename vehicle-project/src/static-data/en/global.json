@@ -2,5 +2,14 @@
     "header": {
         "account" : ["Account", "Settings", "Logout"],
         "navbarLinks" : ["Search", "Sell", "FAQ", "Contact", "About Us"]
+    },
+    "search": {
+        "beispiel": {
+            "marke": "Brand",
+            "modell": "Model"
+        },
+        "labels": ["Brand", "Model", "First registration", "City/ZIP", "Power", "Price"],
+        "select": ["All Brands", "All Models", "First registration up to", "City or ZIP", "Power up to", "Price up to €"],
+        "button": "Search"
     }
 }

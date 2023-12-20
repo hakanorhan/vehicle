@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 
 import Home from './pages/Home'
 import { Container, CssBaseline } from "@mui/material";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Routes>
           <Route exact path="/home" element={<Home />}></Route>
         </Routes>
+        <Footer />
     </BrowserRouter>
     </Container>
   </>
